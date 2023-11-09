@@ -1,0 +1,107 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (6.1.7.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
+    builder (3.2.4)
+    concurrent-ruby (1.2.2)
+    crass (1.0.6)
+    faraday (1.10.3)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.0)
+      faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
+      faraday-retry (~> 1.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
+    faraday-retry (1.0.3)
+    faraday_middleware (1.2.0)
+      faraday (~> 1.0)
+    html2rss (0.9.0)
+      activesupport (>= 5, < 7)
+      addressable (~> 2.7)
+      builder
+      faraday (~> 1.0)
+      faraday_middleware
+      kramdown
+      mime-types (> 3.0)
+      nokogiri (>= 1.10, < 2.0)
+      reverse_markdown (~> 2.0)
+      sanitize (~> 5.0)
+      to_regexp
+      zeitwerk
+    i18n (1.14.1)
+      concurrent-ruby (~> 1.0)
+    kramdown (2.4.0)
+      rexml
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.0218.1)
+    minitest (5.18.1)
+    multipart-post (2.3.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
+    nokogiri (1.15.3-x86_64-linux)
+      racc (~> 1.4)
+    nokogumbo (2.0.5)
+      nokogiri (~> 1.8, >= 1.8.4)
+    public_suffix (5.0.3)
+    puma (6.3.0)
+      nio4r (~> 2.0)
+    racc (1.7.1)
+    rack (2.2.7)
+    rack-protection (3.0.6)
+      rack
+    reverse_markdown (2.1.1)
+      nokogiri
+    rexml (3.2.5)
+    rss (0.2.9)
+      rexml
+    ruby2_keywords (0.0.5)
+    sanitize (5.2.3)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.8.0)
+      nokogumbo (~> 2.0)
+    sinatra (3.0.6)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.6)
+      tilt (~> 2.0)
+    tilt (2.2.0)
+    to_regexp (0.2.1)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    zeitwerk (2.6.8)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  html2rss (~> 0.9.0)
+  puma (~> 6.3)
+  rss (~> 0.2.9)
+  sinatra (~> 3.0)
+
+BUNDLED WITH
+   2.4.13
