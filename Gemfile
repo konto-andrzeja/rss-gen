@@ -2,7 +2,8 @@
 
 source 'https://rubygems.org'
 
-gem 'html2rss', '~> 0.9.0'
-gem 'puma', '~> 6.3'
-gem 'rss', '~> 0.2.9'
-gem 'sinatra', '~> 3.0'
+gem 'faker'
+gem 'html2rss'
+gem 'puma'
+gem 'rss'
+gem 'sinatra'
