@@ -6,9 +6,9 @@ module Channels
       {
         channel: { url: 'https://anime24.pl/', title: 'anime24.pl' },
         selectors: {
-          items: { selector: '.views-infinite-scroll-content-wrapper article' },
+          items: { selector: '#content > .row.tease' },
           title: { selector: 'h5' },
-          description: { selector: '.node__content' },
+          description: { selector: '.teaser-content' },
           link: { selector: 'h5 a', extractor: 'href' },
           enclosure: {
             selector: 'img',
