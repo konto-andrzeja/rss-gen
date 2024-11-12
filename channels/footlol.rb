@@ -2,7 +2,7 @@ require_relative 'base_html2rss.rb'
 
 module Channels
   class Footlol < BaseHtml2rss
-    def self.config(**_params)
+    def self.feed_config(**_params)
       {
         channel: { url: 'https://footroll.pl/footlol', title: 'Footlol' },
         selectors: {

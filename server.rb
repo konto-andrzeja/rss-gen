@@ -9,7 +9,8 @@ CHANNEL_CLASSES = {
   anime24_pl: Channels::Anime24,
   vice_com_physics: Channels::VicePhysics,
   obligacje_pl: Channels::Obligacje,
-  tiktok: Channels::Tiktok
+  tiktok: Channels::Tiktok,
+  fcbarca_com: Channels::FCBarca
 }
 
 set :bind, '0.0.0.0'

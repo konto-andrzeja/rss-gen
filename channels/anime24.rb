@@ -2,7 +2,7 @@ require_relative 'base_html2rss.rb'
 
 module Channels
   class Anime24 < BaseHtml2rss
-    def self.config(**_params)
+    def self.feed_config(**_params)
       {
         channel: { url: 'https://anime24.pl/', title: 'anime24.pl' },
         selectors: {

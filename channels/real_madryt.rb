@@ -2,7 +2,7 @@ require_relative 'base_html2rss.rb'
 
 module Channels
   class RealMadryt < BaseHtml2rss
-    def self.config(**_params)
+    def self.feed_config(**_params)
       {
         channel: { url: 'https://www.realmadryt.pl/aktualnosci', title: 'realmadryt.pl' },
         selectors: {

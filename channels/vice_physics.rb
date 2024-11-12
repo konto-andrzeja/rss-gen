@@ -2,7 +2,7 @@ require_relative 'base_html2rss.rb'
 
 module Channels
   class VicePhysics < BaseHtml2rss
-    def self.config(**_params)
+    def self.feed_config(**_params)
       {
         channel: { url: 'https://www.vice.com/en/topic/physics', title: 'vice.com - physics' },
         selectors: {
