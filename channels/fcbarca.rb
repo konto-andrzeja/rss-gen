@@ -2,10 +2,10 @@ require_relative 'base_html2rss.rb'
 
 module Channels
   class FCBarca < BaseHtml2rss
-    def self.feed_config(**_params)
+    def self.feed_config(**params)
       {
         channel: {
-          url: 'https://hook.eu2.make.com/5zkosw6ady74y6ka4978d6fpjnkfuxmg',
+          url: params[:url],
           title: 'fcbarca.com',
           description: 'Centrum kibica FC Barcelony',
           language: 'pl'
