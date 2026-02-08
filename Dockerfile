@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.3.6
+ARG RUBY_VERSION=4.0.1
 FROM ruby:$RUBY_VERSION-slim as base
 
 # Rack app lives here
@@ -14,19 +14,24 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential
+    apt-get install --no-install-recommends -y build-essential libsqlite3-dev
 
 # Install application gems
 COPY Gemfile* .
-RUN bundle config build.nokogumbo --with-cflags=-Drb_cData=rb_cObject && \
-    bundle install
+RUN bundle install
 
 
 # Final stage for app image
 FROM base
 
+# Install runtime dependencies
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y libsqlite3-0 && \
+    rm -rf /var/lib/apt/lists/*
+
 # Run and own the application files as a non-root user for security
-RUN useradd ruby --home /app --shell /bin/bash
+RUN useradd ruby --home /app --shell /bin/bash && \
+    chown ruby:ruby /app
 USER ruby:ruby
 
 # Copy built artifacts: gems, application

@@ -1,0 +1,20 @@
+plugins:
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 4.0
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  AllowSubject: true
+  Max: 10
+
+RSpec/ExampleLength:
+  CountAsOne: ['array', 'hash']
