@@ -6,10 +6,10 @@ module Channels
       {
         channel: { url: 'https://www.realmadryt.pl/aktualnosci', title: 'realmadryt.pl' },
         selectors: {
-          items: { selector: '.news-article' },
-          title: { selector: 'h4' },
-          description: { selector: 'p' },
-          link: { selector: 'h4 a', extractor: 'href' },
+          items: { selector: '.news-item' },
+          title: { selector: '.news-item__title' },
+          description: { selector: '.news-item__intro' },
+          link: { selector: '.news-item__link', extractor: 'href' },
           enclosure: {
             selector: 'img',
             extractor: 'attribute',
