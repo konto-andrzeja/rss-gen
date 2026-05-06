@@ -10,13 +10,14 @@ module Channels
     RSS_URL = 'http://sport.tvp.pl/sport.tvp.pl/rss+xml.php'
     ITEM_ID_PATTERN = %r{sport\.tvp\.pl/(\d+)/}
     ITEM_PATTERN = %r{<item>.*?</item>}m
+    BARE_AMPERSAND_PATTERN = /&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)/
 
     class << self
       def rss(**_params)
         raw_xml = Faraday.get(RSS_URL).body
         items = extract_items(raw_xml)
         kept_items = deduplicate(items)
-        rebuild_xml(raw_xml, kept_items)
+        sanitize_xml(rebuild_xml(raw_xml, kept_items))
       end
 
       private
@@ -60,6 +61,12 @@ module Channels
       def rebuild_xml(xml, kept_items)
         kept_xml = kept_items.map { |item| item[:raw] }.join("\n")
         xml.sub(%r{<item>.*</item>}m, kept_xml)
+      end
+
+      # The source feed contains bare `&` characters and HTML entities like
+      # `&nbsp;` that aren't valid in XML, so strict RSS readers reject it.
+      def sanitize_xml(xml)
+        xml.gsub('&nbsp;', '&#160;').gsub(BARE_AMPERSAND_PATTERN, '&amp;')
       end
     end
   end

@@ -22,7 +22,10 @@ RSpec.describe Channels::SportTvpPl do
 
     let(:old_item_ids) { %w[old1 old2] }
     let(:seen_item_ids) { source_item_ids.sample(2) }
-    let(:expected_xml) { source_xml.sub(%r{<item>.*</item>}m, kept_items.join("\n")) }
+    let(:expected_xml) do
+      rebuilt = source_xml.sub(%r{<item>.*</item>}m, kept_items.join("\n"))
+      rebuilt.gsub('&nbsp;', '&#160;').gsub(described_class::BARE_AMPERSAND_PATTERN, '&amp;')
+    end
     let(:seen_items_table) { Tables::SeenItems.new(channel: 'sport_tvp_pl') }
 
     before do
