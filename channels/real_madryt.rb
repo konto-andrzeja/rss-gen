@@ -6,12 +6,13 @@ module Channels
       {
         channel: { url: 'https://www.realmadryt.pl/aktualnosci', title: 'realmadryt.pl' },
         selectors: {
-          items: { selector: '.news-item' },
-          title: { selector: '.news-item__title' },
-          description: { selector: '.news-item__intro' },
-          link: { selector: '.news-item__link', extractor: 'href' },
+          items: { selector: '.news-tile' },
+          title: { selector: '.news-tile__title' },
+          description: { selector: '.news-tile__lead' },
+          link: { selector: '.news-tile__title a', extractor: 'href' },
+          updated: { selector: 'time', extractor: 'attribute', attribute: 'datetime' },
           enclosure: {
-            selector: 'img',
+            selector: 'img.card__img',
             extractor: 'attribute',
             attribute: 'src',
             post_process: { name: 'gsub', pattern: ' ', replacement: '%20' }
