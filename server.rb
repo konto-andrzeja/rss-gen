@@ -22,11 +22,15 @@ CHANNEL_CLASSES = {
   nhk_easy: Channels::NhkEasy
 }.freeze
 
+# Kept out of the repo: FEED_PASSWORD if set, otherwise the untracked password.txt.
+PASSWORD = ENV.fetch('FEED_PASSWORD') { File.read(File.join(__dir__, 'password.txt')) }.strip
+abort 'The feed password is empty' if PASSWORD.empty?
+
 set :bind, '0.0.0.0'
 set :port, 8080
 
 get '/' do
-  halt 404 if params[:password] != 'ziyLRwYauqOae2V4'
+  halt 404 if params[:password] != PASSWORD
 
   content_type 'text/xml'
   CHANNEL_CLASSES[params[:id].to_sym].rss(**params)
