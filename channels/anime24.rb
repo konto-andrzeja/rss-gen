@@ -6,12 +6,13 @@ module Channels
       {
         channel: { url: 'https://anime24.pl/', title: 'anime24.pl' },
         selectors: {
-          items: { selector: '#content > .row.tease' },
-          title: { selector: 'h5' },
-          description: { selector: '.teaser-content' },
-          link: { selector: 'h5 a', extractor: 'href' },
+          items: { selector: '#content article.content-card' },
+          title: { selector: '.content-card__title' },
+          description: { selector: '.content-card__summary' },
+          link: { selector: '.content-card__title a', extractor: 'href' },
+          updated: { selector: 'time.content-card__date', extractor: 'attribute', attribute: 'datetime' },
           enclosure: {
-            selector: 'img',
+            selector: 'img.content-card__image',
             extractor: 'attribute',
             attribute: 'src',
             post_process: { name: 'gsub', pattern: ' ', replacement: '%20' }
