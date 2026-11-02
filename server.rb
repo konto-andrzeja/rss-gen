@@ -18,7 +18,8 @@ CHANNEL_CLASSES = {
   obligacje_pl: Channels::Obligacje,
   tiktok: Channels::Tiktok,
   fcbarca_com: Channels::FCBarca,
-  sport_tvp_pl: Channels::SportTvpPl
+  sport_tvp_pl: Channels::SportTvpPl,
+  nhk_easy: Channels::NhkEasy
 }.freeze
 
 set :bind, '0.0.0.0'
