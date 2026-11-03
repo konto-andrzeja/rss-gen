@@ -16,7 +16,8 @@ CHANNEL_CLASSES = {
   anime24_pl: Channels::Anime24,
   obligacje_pl: Channels::Obligacje,
   sport_tvp_pl: Channels::SportTvpPl,
-  nhk_easy: Channels::NhkEasy
+  nhk_easy: Channels::NhkEasy,
+  reddit: Channels::Reddit
 }.freeze
 
 # Kept out of the repo: FEED_PASSWORD if set, otherwise the untracked password.txt.
