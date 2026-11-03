@@ -26,7 +26,7 @@ FROM base
 
 # Install runtime dependencies
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y libsqlite3-0 && \
+    apt-get install --no-install-recommends -y libsqlite3-0 tor && \
     rm -rf /var/lib/apt/lists/*
 
 # Run and own the application files as a non-root user for security
@@ -41,6 +41,9 @@ COPY --from=build --chown=ruby:ruby /app /app
 # Copy application code
 COPY --chown=ruby:ruby . .
 
-# Start the server
+# Reddit blocks datacenter IPs, so the Reddit channel goes through Tor.
+ENV REDDIT_PROXY=http://127.0.0.1:9080
+
+# Start Tor in the background, then the server
 EXPOSE 8080
-CMD ["bundle", "exec", "ruby", "server.rb"]
+CMD ["sh", "-c", "tor --SocksPort 0 --HTTPTunnelPort 127.0.0.1:9080 --DataDirectory /tmp/tor --Log 'notice stdout' & exec bundle exec ruby server.rb"]
