@@ -18,7 +18,8 @@ CHANNEL_CLASSES = {
   sport_tvp_pl: Channels::SportTvpPl,
   nhk_easy: Channels::NhkEasy,
   reddit: Channels::Reddit,
-  tiktok: Channels::Tiktok
+  tiktok: Channels::Tiktok,
+  twitter: Channels::Twitter
 }.freeze
 
 # Kept out of the repo: FEED_PASSWORD if set, otherwise the untracked password.txt.
